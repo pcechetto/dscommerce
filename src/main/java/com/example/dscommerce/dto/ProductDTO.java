@@ -2,8 +2,12 @@ package com.example.dscommerce.dto;
 
 import com.example.dscommerce.entities.Product;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Positive;
 import jakarta.validation.constraints.Size;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class ProductDTO {
 
@@ -20,6 +24,9 @@ public class ProductDTO {
     private Double price;
 
     private String imageUrl;
+
+    @NotEmpty(message = "At least one category must be selected")
+    private List<CategoryDTO> categories = new ArrayList<>();
 
     public ProductDTO() {
     }
@@ -38,6 +45,7 @@ public class ProductDTO {
         description = entity.getDescription();
         price = entity.getPrice();
         imageUrl = entity.getImgUrl();
+        categories = entity.getCategories().stream().map(CategoryDTO::new).toList();
     }
 
     public Long getId() {
@@ -58,5 +66,9 @@ public class ProductDTO {
 
     public String getImageUrl() {
         return imageUrl;
+    }
+
+    public List<CategoryDTO> getCategories() {
+        return categories;
     }
 }
