@@ -48,8 +48,8 @@ public class UserService implements UserDetailsService {
         try {
             String username = customUserUtil.getLoggedUsername();
             return repository.findByEmail(username).get();
-        } catch (Exception e) {
-            throw new RuntimeException(e);
+        } catch (UsernameNotFoundException e) {
+            throw new UsernameNotFoundException("Invalid User");
         }
     }
 
