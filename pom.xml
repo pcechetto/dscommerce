@@ -91,6 +91,8 @@
                         <exclude>com/example/dscommerce/DscommerceApplication.class</exclude>
                         <exclude>com/example/dscommerce/config/**</exclude>
                         <exclude>com/example/dscommerce/entities/**</exclude>
+                        <exclude>com/example/dscommerce/util/**</exclude>
+                        <exclude>com/example/dscommerce/controllers/**</exclude>
                         <exclude>com/example/dscommerce/dto/**</exclude>
                         <exclude>com/example/dscommerce/controllers/handlers/**</exclude>
                         <exclude>com/example/dscommerce/services/exceptions/**</exclude>
